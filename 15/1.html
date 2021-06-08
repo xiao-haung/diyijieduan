@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+    <head>
+        <style>
+            #f{
+                width:500px;
+                height:100px;
+                font-size:0;
+              
+                border:1px solid #ccc;
+            }
+            #f>div{
+                position:relative;
+                display:inline-block;
+                width:100px;
+                height:100px;
+                border:1px solid #7D8186;
+                box-sizing:border-box;
+            }
+            #f>div::after{
+                position:absolute;
+                top:50%;
+                left:50%;
+                margin-top:-25px;
+                margin-left:-25px;
+                content:'';
+                display:block;
+                width:50px;
+                height:50px;
+                border: 10px solid #7D8186;
+                box-sizing:border-box;
+                border-radius:50%;
+
+            }
+            #f>div:nth-of-type(1)::after{
+                border-style:dotted;
+
+            }
+            #f>div:nth-of-type(2)::after{
+                border-top-color:transparent;
+                border-bottom-color:transparent;
+            }
+            #f>div:nth-of-type(3)::after{
+                border-top-color:transparent;
+            }
+            #f>div:nth-of-type(4)::after{
+                border-color:transparent;
+                border-top-color:#7D8186;
+
+            }
+            #f>div:nth-of-type(4)::before{
+                position:absolute;
+                top:50%;
+                left:50%;
+                margin-top:-15px;
+                margin-left:-15px;
+                content:'';
+                width:30px;
+                height:30px;
+                box-sizing:border-box;
+                border-radius:50%;
+                border:10px solid transparent;
+                border-top-color:#7D8186;
+
+            }
+            #f>div:nth-of-type(5)::after{
+                border-bottom-style:none;
+                border-left-color:transparent;
+            }
+            @keyframes rotatel{
+                0%{
+                    transform: rotate(0deg);
+                }
+                100%{
+                    transform:rotate(360deg);
+
+                }
+            }
+            @keyframes rotate2{
+                0%{
+                    transform:rotate(360deg);
+                }
+                100%{
+                    transform:rotate3d(0deg);
+                }
+            }
+            #f>div:nth-of-type(1)::after,#f>div:nth-of-type(2)::after,#f>div:nth-of-type(3)::after,#f>div:nth-of-type(4)::after{
+                animation-name:rotatel;
+                animation-duration:1s;
+                animation-timing-function:linear;
+                animation-iteration-count:infinite;
+            }
+            #f>div:nth-of-type(4)::before,#f>div:nth-of-type(5)::after{
+                animation-name:rotate2;
+                animation-duration:1s;
+                animation-timing-function:linear;
+                animation-iteration-count:infinite;
+            }
+
+
+            
+        </style>
+
+    </head>
+    <body>
+        <div id="f">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+    </body>
+</html>
